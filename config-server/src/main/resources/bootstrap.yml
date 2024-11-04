@@ -1,0 +1,10 @@
+server: 
+   port: ${PORT:8860}
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/AlvaroXD12/Ustay-cloud.git
