@@ -1,0 +1,50 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "UsuarioServiceApplication",
+            "request": "launch",
+            "mainClass": "com.springboot.usuario_service.UsuarioServiceApplication",
+            "projectName": "config-service"
+        },
+        {
+            "type": "java",
+            "name": "EdificioServiceApplication",
+            "request": "launch",
+            "mainClass": "com.springboot.edificio_service.EdificioServiceApplication",
+            "projectName": "edificio_service"
+        },
+        {
+            "type": "java",
+            "name": "PartnerServiceApplication",
+            "request": "launch",
+            "mainClass": "com.springboot.partner_service.PartnerServiceApplication",
+            "projectName": "partner-service"
+        },
+        {
+            "type": "java",
+            "name": "PersonaServiceApplication",
+            "request": "launch",
+            "mainClass": "com.springboot.persona_service.PersonaServiceApplication",
+            "projectName": "persona-service"
+        },
+        {
+            "type": "java",
+            "name": "UstayProjectApplication",
+            "request": "launch",
+            "mainClass": "com.ustay.ustay_project.UstayProjectApplication",
+            "projectName": "ustay_project"
+        }
+    ]
+}

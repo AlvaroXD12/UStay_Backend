@@ -43,6 +43,11 @@ public class EdificioController {
     @Autowired
     private EdificioService edificioService;
     
+    @GetMapping("/hola")
+    public String hola(){
+        return "Hola";
+    }
+
     @GetMapping("/lista")
     public ResponseEntity<List<Edificio>> getAllEdificios() {
         List<Edificio> list = edificioService.findAll();
@@ -52,8 +57,8 @@ public class EdificioController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
     
-    @GetMapping("/id/{id}")
-    public ResponseEntity<Edificio> getEdificioById(@PathVariable int id) {
+    @GetMapping("/lista/{id}")
+    public ResponseEntity<Edificio> getEdificioById(@PathVariable("id") int id) {
         Optional<Edificio> edificio = edificioService.findById(id);
         return edificio.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -70,7 +75,7 @@ public class EdificioController {
     }
     
     @PutMapping("/update/{id}")
-    public ResponseEntity<String> update(@PathVariable int id, @RequestBody Edificio edificio) {
+    public ResponseEntity<String> update(@PathVariable("id") int id, @RequestBody Edificio edificio) {
         try {
             if (!edificioService.existsById(id)) {
                 return new ResponseEntity<>("No existe el edificio", HttpStatus.NOT_FOUND);
@@ -83,7 +88,7 @@ public class EdificioController {
     }
     
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable int id) {
+    public ResponseEntity<String> delete(@PathVariable("id") int id) {
         try {
             if (!edificioService.existsById(id)) {
                 return new ResponseEntity<>("No existe el edificio", HttpStatus.NOT_FOUND);

@@ -10,16 +10,16 @@ public class Edificio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEdificio;
+    private int id;
     private String referenciaEdificio;
     private String direccion;
     private String npisos;
     private String correoEmpresa;
     public int getIdEdificio() {
-        return idEdificio;
+        return id;
     }
-    public void setIdEdificio(int idEdificio) {
-        this.idEdificio = idEdificio;
+    public void setIdEdificio(int id) {
+        this.id = id;
     }
     public String getReferenciaEdificio() {
         return referenciaEdificio;
@@ -47,8 +47,8 @@ public class Edificio {
     }
     public Edificio() {
     }
-    public Edificio(int idEdificio, String referenciaEdificio, String direccion, String npisos, String correoEmpresa) {
-        this.idEdificio = idEdificio;
+    public Edificio(int id, String referenciaEdificio, String direccion, String npisos, String correoEmpresa) {
+        this.id= id;
         this.referenciaEdificio = referenciaEdificio;
         this.direccion = direccion;
         this.npisos = npisos;
