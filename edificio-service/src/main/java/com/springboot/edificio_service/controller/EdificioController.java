@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.springboot.edificio_service.entity.Edificio;
 import com.springboot.edificio_service.service.EdificioService;
 
+
 @RestController
 @RequestMapping("/api/edificio")
 public class EdificioController {
@@ -48,7 +49,7 @@ public class EdificioController {
         return "Hola";
     }
 
-    @GetMapping("/lista")
+    @GetMapping("/listar")
     public ResponseEntity<List<Edificio>> getAllEdificios() {
         List<Edificio> list = edificioService.findAll();
         if (list.isEmpty()) {
@@ -57,7 +58,7 @@ public class EdificioController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
     
-    @GetMapping("/lista/{id}")
+    @GetMapping("/listar/{id}")
     public ResponseEntity<Edificio> getEdificioById(@PathVariable("id") int id) {
         Optional<Edificio> edificio = edificioService.findById(id);
         return edificio.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
@@ -99,4 +100,5 @@ public class EdificioController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 }
