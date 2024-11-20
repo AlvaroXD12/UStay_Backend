@@ -14,7 +14,7 @@ public class Cors {
         CorsConfiguration config = new CorsConfiguration();
 
         // Configura los orígenes permitidos. Puedes ajustar esto según tus necesidades.
-        config.addAllowedOrigin("http://localhost:4200");
+        config.addAllowedOrigin("https://ustay-web.vercel.app/");
 
         // Configura los métodos HTTP permitidos (GET, POST, PUT, DELETE, etc.).
         config.addAllowedMethod("*");

@@ -22,6 +22,8 @@ public class Inmueble {
 	private double precio;
 	private int n_cuarto;
 	private boolean ilove;
+	private String imagen;
+	private String imagen2;
 
 	@ManyToOne
 	private Edificio edificio;
@@ -81,6 +83,22 @@ public class Inmueble {
 	public void setIlove(boolean ilove) {
 		this.ilove = ilove;
 	}
+	
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+	public String getImagen2() {
+		return imagen2;
+	}
+
+	public void setImagen2(String imagen2) {
+		this.imagen2 = imagen2;
+	}
 
 	public Edificio getEdificio() {
 		return edificio;
@@ -90,14 +108,16 @@ public class Inmueble {
 		this.edificio = edificio;
 	}
 
-	public Inmueble(int id, String descripcion, boolean disponibilidad, double precio, int n_cuarto, boolean ilove,
-			Edificio edificio) {
+	public Inmueble(int id, String descripcion, boolean disponibilidad, double precio, int n_cuarto, boolean ilove, String imagen,
+			String imagen2, Edificio edificio) {
 		this.id = id;
 		this.descripcion = descripcion;
 		this.disponibilidad = disponibilidad;
 		this.precio = precio;
 		this.n_cuarto = n_cuarto;
 		this.ilove = ilove;
+		this.imagen = imagen;
+		this.imagen2 = imagen2;
 		this.edificio = edificio;
 	}
 

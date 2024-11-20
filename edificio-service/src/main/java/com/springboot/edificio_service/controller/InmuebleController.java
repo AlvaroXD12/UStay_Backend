@@ -12,13 +12,16 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.springboot.edificio_service.entity.Inmueble;
 import com.springboot.edificio_service.service.InmuebleService;
@@ -61,14 +64,16 @@ public class InmuebleController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<String> save(@RequestBody Inmueble inmueble) {
-        try {
-            inmuebleService.save(inmueble);
-            return new ResponseEntity<>("Inmueble Guardado", org.springframework.http.HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+    public ResponseEntity<?> save(
+    		@ModelAttribute Inmueble inmueble, 
+    		@RequestParam("file") MultipartFile file) {
+    	 try {
+             inmuebleService.save(inmueble, file, file);
+             return ResponseEntity.status(org.springframework.http.HttpStatus.CREATED).body("Inmueble guardado con éxito");
+         } catch (Exception e) {
+             return ResponseEntity.status(org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR).body("Error al guardar el Inmueble");
+         }
+     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<String> update(@PathVariable("id") int id, @RequestBody Inmueble inmueble) {

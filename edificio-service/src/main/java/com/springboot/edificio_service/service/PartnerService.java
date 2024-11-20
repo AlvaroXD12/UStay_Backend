@@ -28,7 +28,7 @@ public class PartnerService {
 	        if (!file.isEmpty()) {
 	            String rutaImagen = saveImage(file);  // Guardar la imagen en el sistema de archivos
 	            partner.setImg(rutaImagen);       // Asignar la ruta de la imagen al edificio
-	            String rutaImagen2 = saveImage(file);
+	            String rutaImagen2 = saveImage(file2);
 	            partner.setImg2(rutaImagen2);
 	        }
 	        partnerRepository.save(partner);
